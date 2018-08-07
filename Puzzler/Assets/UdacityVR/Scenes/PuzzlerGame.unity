@@ -38,13 +38,13 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -171,7 +171,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 2
+  m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
@@ -369,6 +369,11 @@ Prefab:
       propertyPath: m_Name
       value: Dungeon Orb (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114950558428665804, guid: 1f1d3383012ab4f1cb31dcc37907601a,
+        type: 2}
+      propertyPath: gameLogic
+      value: 
+      objectReference: {fileID: 181121964}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f1d3383012ab4f1cb31dcc37907601a, type: 2}
   m_IsPrefabParent: 0
@@ -885,6 +890,8 @@ GameObject:
   - component: {fileID: 159257129}
   - component: {fileID: 159257133}
   - component: {fileID: 159257134}
+  - component: {fileID: 159257135}
+  - component: {fileID: 159257136}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -948,7 +955,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 159257128}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -982,6 +989,37 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   maxRaycastHits: 64
+--- !u!114 &159257135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 159257128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1156c073149742478887bb24456f32d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalGainDb: 0
+  occlusionMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  quality: 2
+--- !u!114 &159257136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 159257128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -768656878, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!1 &181121963
 GameObject:
   m_ObjectHideFlags: 0
@@ -1307,90 +1345,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f1d3383012ab4f1cb31dcc37907601a, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &237523123
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 237523124}
-  - component: {fileID: 237523125}
-  - component: {fileID: 237523127}
-  m_Layer: 0
-  m_Name: Camera
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &237523124
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 237523123}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.17, y: 2.06, z: 3.287}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 249800829}
-  - {fileID: 639566546}
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &237523125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 237523123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1156c073149742478887bb24456f32d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  globalGainDb: 0
-  occlusionMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  quality: 2
---- !u!20 &237523127
-Camera:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 237523123}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
 --- !u!1 &249800828 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 177758, guid: 970dd4b9371394fb4890965f608d46fd, type: 2}
@@ -1882,7 +1836,7 @@ MonoBehaviour:
   occlusionEnabled: 0
   playOnAwake: 1
   sourceClip: {fileID: 8300000, guid: ea7fd1cd08a5f4978a2bd84589bdf195, type: 3}
-  sourceLoop: 0
+  sourceLoop: 1
   sourceMute: 0
   sourcePitch: 1
   sourcePriority: 128
@@ -2587,11 +2541,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 639566545}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 237523124}
+  m_Father: {fileID: 249800829}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &660369778
@@ -3160,6 +3114,11 @@ Prefab:
       propertyPath: m_Name
       value: Dungeon Orb (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 114950558428665804, guid: 1f1d3383012ab4f1cb31dcc37907601a,
+        type: 2}
+      propertyPath: gameLogic
+      value: 
+      objectReference: {fileID: 181121964}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f1d3383012ab4f1cb31dcc37907601a, type: 2}
   m_IsPrefabParent: 0
@@ -3725,6 +3684,11 @@ Prefab:
       propertyPath: m_Name
       value: Dungeon Orb (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 114950558428665804, guid: 1f1d3383012ab4f1cb31dcc37907601a,
+        type: 2}
+      propertyPath: gameLogic
+      value: 
+      objectReference: {fileID: 181121964}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f1d3383012ab4f1cb31dcc37907601a, type: 2}
   m_IsPrefabParent: 0
@@ -3733,7 +3697,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 237523124}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 498412, guid: 970dd4b9371394fb4890965f608d46fd, type: 2}
       propertyPath: m_LocalPosition.x
@@ -3741,11 +3705,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 498412, guid: 970dd4b9371394fb4890965f608d46fd, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.03
       objectReference: {fileID: 0}
     - target: {fileID: 498412, guid: 970dd4b9371394fb4890965f608d46fd, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 3.26
       objectReference: {fileID: 0}
     - target: {fileID: 498412, guid: 970dd4b9371394fb4890965f608d46fd, type: 2}
       propertyPath: m_LocalRotation.x
@@ -3753,7 +3717,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 498412, guid: 970dd4b9371394fb4890965f608d46fd, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 498412, guid: 970dd4b9371394fb4890965f608d46fd, type: 2}
       propertyPath: m_LocalRotation.z
@@ -3761,11 +3725,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 498412, guid: 970dd4b9371394fb4890965f608d46fd, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 498412, guid: 970dd4b9371394fb4890965f608d46fd, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 970dd4b9371394fb4890965f608d46fd, type: 2}
@@ -3828,7 +3792,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 2
+  m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
@@ -3843,39 +3807,6 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 436798, guid: 1f1d3383012ab4f1cb31dcc37907601a, type: 2}
   m_PrefabInternal: {fileID: 227417906}
---- !u!114 &1130739104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1130739099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dbca64e524ea44f9b26142ec59aca8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bypassRoomEffects: 0
-  directivityAlpha: 0
-  directivitySharpness: 1
-  listenerDirectivityAlpha: 0
-  listenerDirectivitySharpness: 1
-  gainDb: 0
-  occlusionEnabled: 0
-  playOnAwake: 1
-  sourceClip: {fileID: 8300000, guid: 1edb62cef9b864418ba8fe914705ae25, type: 3}
-  sourceLoop: 0
-  sourceMute: 0
-  sourcePitch: 1
-  sourcePriority: 128
-  sourceSpatialBlend: 1
-  sourceDopplerLevel: 1
-  sourceSpread: 0
-  sourceVolume: 1
-  sourceRolloffMode: 0
-  sourceMaxDistance: 500
-  sourceMinDistance: 1
-  hrtfEnabled: 1
-  audioSource: {fileID: 0}
 --- !u!1 &1132132686
 GameObject:
   m_ObjectHideFlags: 0
@@ -4382,7 +4313,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 2
+  m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
@@ -4613,6 +4544,11 @@ Prefab:
       propertyPath: m_Name
       value: Dungeon Orb (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 114950558428665804, guid: 1f1d3383012ab4f1cb31dcc37907601a,
+        type: 2}
+      propertyPath: gameLogic
+      value: 
+      objectReference: {fileID: 181121964}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f1d3383012ab4f1cb31dcc37907601a, type: 2}
   m_IsPrefabParent: 0
@@ -5330,7 +5266,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 2
+  m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
@@ -5556,7 +5492,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 2
+  m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
@@ -6575,7 +6511,7 @@ MonoBehaviour:
   occlusionEnabled: 0
   playOnAwake: 1
   sourceClip: {fileID: 8300000, guid: ea7fd1cd08a5f4978a2bd84589bdf195, type: 3}
-  sourceLoop: 0
+  sourceLoop: 1
   sourceMute: 0
   sourcePitch: 1
   sourcePriority: 128
